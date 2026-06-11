@@ -311,40 +311,85 @@ ol {
 	top: 0;
 	left: 0;
 	z-index: 999999;
-	background: #000;
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#preloder.fade-out {
+	opacity: 0;
+	visibility: hidden;
 }
 
 .loader {
-	width: 40px;
-	height: 40px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -13px;
-	margin-left: -13px;
-	border-radius: 60px;
-	animation: loader 0.8s linear infinite;
-	-webkit-animation: loader 0.8s linear infinite;
+	width: 200px;
+	height: auto;
+	max-width: 80vw;
+	max-height: 80vh;
+	position: relative;
+	animation: logoFadeInOut 2s ease-in-out infinite;
+	-webkit-animation: logoFadeInOut 2s ease-in-out infinite;
 }
 
-@keyframes loader {
+.loader img {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: contain;
+}
+
+/* Logo Animation - Smooth Fade and Pulse Effect */
+@keyframes logoFadeInOut {
 	0% {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-		border: 4px solid #f44336;
-		border-left-color: transparent;
+		opacity: 0.4;
+		transform: scale(0.95);
 	}
 	50% {
-		-webkit-transform: rotate(180deg);
-		transform: rotate(180deg);
-		border: 4px solid #673ab7;
-		border-left-color: transparent;
+		opacity: 1;
+		transform: scale(1);
 	}
 	100% {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-		border: 4px solid #f44336;
-		border-left-color: transparent;
+		opacity: 0.4;
+		transform: scale(0.95);
+	}
+}
+
+@-webkit-keyframes logoFadeInOut {
+	0% {
+		opacity: 0.4;
+		-webkit-transform: scale(0.95);
+		transform: scale(0.95);
+	}
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0.4;
+		-webkit-transform: scale(0.95);
+		transform: scale(0.95);
+	}
+}
+
+/* Responsive adjustments for different screen sizes */
+@media only screen and (max-width: 767px) {
+	.loader {
+		width: 150px;
+	}
+}
+
+@media only screen and (max-width: 479px) {
+	.loader {
+		width: 120px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.loader {
+		width: 250px;
 	}
 }
 
