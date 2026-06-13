@@ -154,7 +154,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Inter", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -167,8 +167,8 @@ h5,
 h6 {
 	margin: 0;
 	color: #111111;
-	font-weight: 400;
-	font-family: "Quantico", sans-serif;
+	font-weight: 600;
+	font-family: "Poppins", sans-serif;
 }
 
 h1 {
@@ -197,7 +197,7 @@ h6 {
 
 p {
 	font-size: 15px;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Inter", sans-serif;
 	color: #666666;
 	font-weight: 400;
 	line-height: 26px;
@@ -286,7 +286,7 @@ ol {
 	background: #0E2F76;
 	text-transform: uppercase;
 	font-weight: 700;
-	font-family: "Quantico", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 .site-btn {
@@ -295,7 +295,7 @@ ol {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	font-family: "Quantico", sans-serif;
+	font-family: "Poppins", sans-serif;
 	display: inline-block;
 	padding: 14px 30px 12px;
 	background: #0E2F76;
@@ -543,7 +543,7 @@ ol {
 	display: block;
 	padding: 32px 8px 30px;
 	position: relative;
-	font-family: "Quantico", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 .nav-menu ul li a:after {
@@ -949,7 +949,7 @@ ol {
 
 .portfolio-filter .pf-item .pf-text span {
 	font-size: 15px;
-	co0E2F76;
+	color: #0E2F76;
 	position: relative;
 	top: 40px;
 	-webkit-transition: all 0.6s;
@@ -984,7 +984,7 @@ ol {
 	display: inline-block;
 	padding: 15px 102px 13px;
 	background: #000606;
-	font-family: "Quantico", sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 
 /*---------------------
