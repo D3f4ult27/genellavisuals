@@ -1260,6 +1260,14 @@ ol {
 	margin-bottom: 30px;
 }
 
+.team-members-row {
+	justify-content: center;
+}
+
+.team-members-row > div {
+	margin-bottom: 30px;
+}
+
 .team-item img {
 	min-width: 100%;
 }
