@@ -30,6 +30,684 @@
 .ba-compare-wrapper {
 	margin: 30px 0 60px;
 }
+
+/*---------------------
+  GENELLA Pricing Page
+-----------------------*/
+
+.gv-pricing-page,
+.gv-pricing-page p,
+.gv-pricing-page a,
+.gv-pricing-page li,
+.gv-pricing-hero,
+.gv-final-cta {
+	font-family: "Poppins", sans-serif;
+}
+
+.gv-pricing-page h1,
+.gv-pricing-page h2,
+.gv-pricing-page h3,
+.gv-pricing-hero h1,
+.gv-final-cta h2 {
+	font-family: "Poppins", sans-serif;
+}
+
+.gv-pricing-hero {
+	position: relative;
+	min-height: 620px;
+	display: flex;
+	align-items: center;
+	background-image: url("../img/hero/hero-11.jpg");
+	background-size: cover;
+	background-position: center;
+	color: #ffffff;
+	overflow: hidden;
+}
+
+.gv-pricing-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, rgba(4, 17, 44, 0.92) 0%, rgba(14, 47, 118, 0.74) 48%, rgba(4, 17, 44, 0.34) 100%);
+}
+
+.gv-pricing-hero .container {
+	position: relative;
+	z-index: 2;
+}
+
+.gv-breadcrumb {
+	margin-bottom: 35px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.gv-breadcrumb a {
+	color: rgba(255, 255, 255, 0.85);
+	margin-right: 14px;
+}
+
+.gv-breadcrumb span {
+	color: #ffffff;
+	position: relative;
+	padding-left: 18px;
+}
+
+.gv-breadcrumb span:before {
+	content: "/";
+	position: absolute;
+	left: 0;
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.gv-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	color: #0E2F76;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+	margin-bottom: 14px;
+}
+
+.gv-pricing-hero .gv-eyebrow,
+.gv-final-cta .gv-eyebrow {
+	color: #ffffff;
+}
+
+.gv-eyebrow:before {
+	content: "";
+	width: 28px;
+	height: 2px;
+	background: currentColor;
+	border-radius: 99px;
+}
+
+.gv-pricing-hero h1 {
+	color: #ffffff;
+	font-size: 64px;
+	line-height: 1.05;
+	font-weight: 800;
+	margin-bottom: 22px;
+}
+
+.gv-pricing-hero p {
+	max-width: 720px;
+	color: rgba(255, 255, 255, 0.86);
+	font-size: 18px;
+	line-height: 1.8;
+	margin-bottom: 34px;
+}
+
+.gv-hero-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+}
+
+.gv-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 52px;
+	padding: 15px 28px;
+	border-radius: 999px;
+	font-size: 14px;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: all 0.25s ease;
+}
+
+.gv-btn:hover,
+.gv-btn:focus {
+	text-decoration: none;
+	transform: translateY(-2px);
+}
+
+.gv-btn-primary {
+	background: #0E2F76;
+	color: #ffffff;
+	box-shadow: 0 18px 35px rgba(14, 47, 118, 0.25);
+}
+
+.gv-btn-primary:hover,
+.gv-btn-primary:focus {
+	background: #092257;
+	color: #ffffff;
+}
+
+.gv-btn-secondary {
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.55);
+	background: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(10px);
+}
+
+.gv-btn-secondary:hover,
+.gv-btn-secondary:focus {
+	background: #ffffff;
+	color: #0E2F76;
+}
+
+.gv-btn-outline {
+	color: #0E2F76;
+	border: 1px solid rgba(14, 47, 118, 0.18);
+	background: #ffffff;
+}
+
+.gv-btn-outline:hover,
+.gv-btn-outline:focus {
+	background: #0E2F76;
+	color: #ffffff;
+	border-color: #0E2F76;
+}
+
+.gv-btn-light {
+	color: #0E2F76;
+	background: #ffffff;
+}
+
+.gv-btn-light:hover,
+.gv-btn-light:focus {
+	color: #0E2F76;
+	background: #f4f7ff;
+}
+
+.gv-hero-panel {
+	background: rgba(255, 255, 255, 0.94);
+	border-radius: 22px;
+	padding: 34px;
+	color: #111111;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.26);
+	border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.gv-hero-panel span {
+	display: block;
+	color: #68738a;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+.gv-hero-panel strong {
+	display: block;
+	color: #0E2F76;
+	font-family: "Poppins", sans-serif;
+	font-size: 36px;
+	line-height: 1.1;
+	margin-bottom: 14px;
+}
+
+.gv-hero-panel p {
+	color: #4f5b70;
+	font-size: 15px;
+	line-height: 1.7;
+	margin: 0;
+}
+
+.gv-section {
+	padding: 100px 0;
+	background: #ffffff;
+}
+
+.gv-section-soft {
+	background: #f6f8fc;
+}
+
+.gv-section-heading {
+	max-width: 780px;
+	margin: 0 auto 48px;
+}
+
+.gv-section-heading h2 {
+	color: #111111;
+	font-size: 42px;
+	font-weight: 800;
+	line-height: 1.18;
+	margin-bottom: 15px;
+}
+
+.gv-section-heading p {
+	color: #657187;
+	font-size: 16px;
+	line-height: 1.75;
+	margin: 0;
+}
+
+.gv-price-card {
+	position: relative;
+	height: calc(100% - 30px);
+	background: #ffffff;
+	border: 1px solid rgba(14, 47, 118, 0.08);
+	border-radius: 20px;
+	padding: 34px;
+	margin-bottom: 30px;
+	box-shadow: 0 18px 55px rgba(15, 34, 68, 0.09);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.gv-price-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 28px 70px rgba(15, 34, 68, 0.16);
+	border-color: rgba(14, 47, 118, 0.22);
+}
+
+.gv-price-card--featured {
+	border: 2px solid #0E2F76;
+	box-shadow: 0 28px 80px rgba(14, 47, 118, 0.18);
+}
+
+.gv-price-card--premium {
+	background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+	border: 2px solid rgba(14, 47, 118, 0.42);
+}
+
+.gv-badge {
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	background: #0E2F76;
+	color: #ffffff;
+	border-radius: 999px;
+	padding: 8px 14px;
+	font-size: 11px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.gv-price-card__head {
+	padding-bottom: 22px;
+	border-bottom: 1px solid #edf0f6;
+	margin-bottom: 22px;
+}
+
+.gv-card-label {
+	display: block;
+	color: #0E2F76;
+	font-size: 13px;
+	font-weight: 800;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+.gv-price-card h3 {
+	color: #111111;
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1.1;
+	margin-bottom: 12px;
+}
+
+.gv-price-card__head p {
+	color: #657187;
+	font-size: 15px;
+	line-height: 1.65;
+	margin: 0;
+}
+
+.gv-feature-list {
+	margin: 0 0 28px;
+	padding: 0;
+}
+
+.gv-feature-list li {
+	position: relative;
+	list-style: none;
+	color: #4f5b70;
+	font-size: 14px;
+	line-height: 1.6;
+	padding: 0 0 12px 28px;
+}
+
+.gv-feature-list li:before {
+	content: "\f00c";
+	font-family: "FontAwesome";
+	position: absolute;
+	left: 0;
+	top: 1px;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: rgba(14, 47, 118, 0.1);
+	color: #0E2F76;
+	font-size: 10px;
+	line-height: 18px;
+	text-align: center;
+}
+
+.gv-price-card .gv-btn {
+	width: 100%;
+}
+
+.gv-table-wrap {
+	overflow-x: auto;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 18px 55px rgba(15, 34, 68, 0.09);
+	border: 1px solid #edf0f6;
+}
+
+.gv-comparison-table {
+	width: 100%;
+	min-width: 760px;
+	border-collapse: collapse;
+	font-family: "Poppins", sans-serif;
+}
+
+.gv-comparison-table th {
+	background: #0E2F76;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 18px 22px;
+}
+
+.gv-comparison-table td {
+	color: #4f5b70;
+	font-size: 15px;
+	padding: 18px 22px;
+	border-bottom: 1px solid #edf0f6;
+}
+
+.gv-comparison-table tr:last-child td {
+	border-bottom: 0;
+}
+
+.gv-comparison-table td:first-child {
+	color: #111111;
+	font-weight: 800;
+}
+
+.gv-comparison-table tbody tr:nth-child(even) {
+	background: #f8faff;
+}
+
+.gv-addon-panel {
+	height: calc(100% - 30px);
+	background: #ffffff;
+	border-radius: 20px;
+	padding: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 18px 55px rgba(15, 34, 68, 0.08);
+	border: 1px solid rgba(14, 47, 118, 0.08);
+}
+
+.gv-addon-panel h3 {
+	color: #111111;
+	font-size: 24px;
+	font-weight: 800;
+	margin-bottom: 18px;
+}
+
+.gv-addon-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+	padding: 16px 0;
+	border-bottom: 1px solid #edf0f6;
+}
+
+.gv-addon-item:last-child {
+	border-bottom: 0;
+}
+
+.gv-addon-item span {
+	color: #4f5b70;
+	font-weight: 600;
+}
+
+.gv-addon-item strong {
+	color: #0E2F76;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+.gv-event-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 14px;
+}
+
+.gv-event-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 130px;
+	text-align: center;
+	background: #ffffff;
+	border: 1px solid rgba(14, 47, 118, 0.08);
+	border-radius: 18px;
+	box-shadow: 0 14px 40px rgba(15, 34, 68, 0.07);
+	transition: all 0.25s ease;
+}
+
+.gv-event-card:hover {
+	transform: translateY(-6px);
+	background: #0E2F76;
+	color: #ffffff;
+}
+
+.gv-event-card i {
+	color: #0E2F76;
+	font-size: 28px;
+	margin-bottom: 13px;
+	transition: color 0.25s ease;
+}
+
+.gv-event-card:hover i {
+	color: #ffffff;
+}
+
+.gv-event-card span {
+	font-size: 13px;
+	font-weight: 800;
+	color: #111111;
+	line-height: 1.35;
+	transition: color 0.25s ease;
+}
+
+.gv-event-card:hover span {
+	color: #ffffff;
+}
+
+.gv-faq {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.gv-faq-item {
+	background: #ffffff;
+	border: 1px solid rgba(14, 47, 118, 0.08);
+	border-radius: 16px;
+	margin-bottom: 14px;
+	box-shadow: 0 12px 35px rgba(15, 34, 68, 0.06);
+	overflow: hidden;
+}
+
+.gv-faq-item button {
+	position: relative;
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: #111111;
+	text-align: left;
+	font-family: "Poppins", sans-serif;
+	font-size: 17px;
+	font-weight: 700;
+	padding: 22px 58px 22px 24px;
+	cursor: pointer;
+}
+
+.gv-faq-item button:after {
+	content: "\f107";
+	font-family: "FontAwesome";
+	position: absolute;
+	right: 24px;
+	top: 50%;
+	transform: translateY(-50%) rotate(180deg);
+	color: #0E2F76;
+	transition: transform 0.25s ease;
+}
+
+.gv-faq-item button.collapsed:after {
+	transform: translateY(-50%);
+}
+
+.gv-faq-item p {
+	color: #657187;
+	line-height: 1.75;
+	padding: 0 24px 22px;
+	margin: 0;
+}
+
+.gv-final-cta {
+	padding: 95px 0;
+	background: linear-gradient(135deg, #061735 0%, #0E2F76 100%);
+	color: #ffffff;
+}
+
+.gv-final-cta__inner {
+	text-align: center;
+	max-width: 850px;
+	margin: 0 auto;
+}
+
+.gv-final-cta h2 {
+	color: #ffffff;
+	font-size: 44px;
+	font-weight: 800;
+	margin-bottom: 16px;
+}
+
+.gv-final-cta p {
+	color: rgba(255, 255, 255, 0.82);
+	font-size: 17px;
+	margin-bottom: 22px;
+}
+
+.gv-contact-line {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin-bottom: 30px;
+}
+
+.gv-contact-line a {
+	color: #ffffff;
+	font-weight: 700;
+}
+
+.gv-contact-line a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+.gv-final-cta .gv-hero-actions {
+	justify-content: center;
+}
+
+@media only screen and (max-width: 1199px) {
+	.gv-event-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.gv-pricing-hero {
+		min-height: auto;
+		padding: 110px 0 80px;
+	}
+
+	.gv-pricing-hero h1 {
+		font-size: 48px;
+	}
+
+	.gv-hero-panel {
+		margin-top: 40px;
+	}
+
+	.gv-section {
+		padding: 80px 0;
+	}
+
+	.gv-event-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.gv-pricing-hero {
+		padding: 85px 0 65px;
+	}
+
+	.gv-pricing-hero h1 {
+		font-size: 38px;
+	}
+
+	.gv-pricing-hero p {
+		font-size: 16px;
+	}
+
+	.gv-section-heading h2,
+	.gv-final-cta h2 {
+		font-size: 32px;
+	}
+
+	.gv-price-card,
+	.gv-addon-panel,
+	.gv-hero-panel {
+		padding: 26px;
+		border-radius: 18px;
+	}
+
+	.gv-badge {
+		position: static;
+		display: inline-flex;
+		margin-bottom: 18px;
+	}
+
+	.gv-addon-item {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.gv-event-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gv-hero-actions,
+	.gv-contact-line {
+		flex-direction: column;
+	}
+
+	.gv-btn {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 479px) {
+	.gv-pricing-hero h1 {
+		font-size: 32px;
+	}
+
+	.gv-section {
+		padding: 65px 0;
+	}
+
+	.gv-event-grid {
+		grid-template-columns: 1fr;
+	}
+}
 .ba-compare {
 	position: relative;
 	overflow: hidden;
@@ -154,7 +832,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Inter", sans-serif;
+	font-family: "Poppins", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -197,7 +875,7 @@ h6 {
 
 p {
 	font-size: 15px;
-	font-family: "Inter", sans-serif;
+	font-family: "Poppins", sans-serif;
 	color: #666666;
 	font-weight: 400;
 	line-height: 26px;
