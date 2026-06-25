@@ -150,10 +150,9 @@
 
         var html = items.map(function (post) {
             var src = post.thumbnail || post.image;
-            var alt = escapeHtml(post.caption || 'Instagram post from GENELLA Visuals');
             var href = post.permalink || config.profileUrl;
             return '<a href="' + escapeHtml(href) + '" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">' +
-                '<img src="' + escapeHtml(src) + '" alt="' + alt + '" loading="lazy" decoding="async" width="120" height="120">' +
+                '<img src="' + escapeHtml(src) + '" alt="" loading="lazy" decoding="async" width="120" height="120">' +
                 '</a>';
         }).join('');
 
