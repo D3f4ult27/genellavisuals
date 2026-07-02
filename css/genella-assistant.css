@@ -1,0 +1,495 @@
+.gv-ai-widget {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 1200;
+	font-family: "Poppins", sans-serif;
+	color: #151515;
+}
+
+.gv-ai-widget * {
+	box-sizing: border-box;
+}
+
+.gv-ai-launcher {
+	width: 64px;
+	height: 64px;
+	border: 0;
+	border-radius: 50%;
+	background: linear-gradient(145deg, #111, #28385f);
+	color: #fff;
+	box-shadow: 0 22px 45px rgba(0, 0, 0, 0.24);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+	position: relative;
+}
+
+.gv-ai-launcher:hover,
+.gv-ai-launcher:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 28px 55px rgba(0, 0, 0, 0.3);
+	outline: none;
+}
+
+.gv-ai-launcher i {
+	font-size: 24px;
+}
+
+.gv-ai-badge {
+	position: absolute;
+	top: -3px;
+	right: -3px;
+	min-width: 21px;
+	height: 21px;
+	padding: 0 6px;
+	border-radius: 99px;
+	background: #e7b45a;
+	color: #111;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 21px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.gv-ai-panel {
+	position: absolute;
+	right: 0;
+	bottom: 82px;
+	width: min(420px, calc(100vw - 32px));
+	height: min(710px, calc(100vh - 112px));
+	background: rgba(255, 255, 255, 0.94);
+	border: 1px solid rgba(17, 17, 17, 0.08);
+	border-radius: 22px;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
+	backdrop-filter: blur(18px);
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto auto 1fr auto;
+	opacity: 0;
+	transform: translateY(16px) scale(0.98);
+	pointer-events: none;
+	transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.gv-ai-widget.is-open .gv-ai-panel {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	pointer-events: auto;
+}
+
+.gv-ai-header {
+	background: #111;
+	color: #fff;
+	padding: 18px 18px 16px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.gv-ai-avatar {
+	width: 42px;
+	height: 42px;
+	border-radius: 15px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+}
+
+.gv-ai-avatar img {
+	max-width: 28px;
+	max-height: 28px;
+}
+
+.gv-ai-title {
+	min-width: 0;
+	flex: 1;
+}
+
+.gv-ai-title strong {
+	display: block;
+	font-size: 15px;
+	line-height: 1.2;
+}
+
+.gv-ai-title span {
+	display: block;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.74);
+	margin-top: 3px;
+}
+
+.gv-ai-tools {
+	display: flex;
+	gap: 6px;
+}
+
+.gv-ai-icon-btn {
+	width: 34px;
+	height: 34px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.08);
+	color: #fff;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gv-ai-icon-btn:hover,
+.gv-ai-icon-btn:focus-visible {
+	background: rgba(255, 255, 255, 0.16);
+	outline: none;
+}
+
+.gv-ai-search {
+	display: none;
+	padding: 10px 14px;
+	background: #f7f7f7;
+	border-bottom: 1px solid #ececec;
+}
+
+.gv-ai-search.is-visible {
+	display: block;
+}
+
+.gv-ai-search input,
+.gv-ai-composer textarea,
+.gv-ai-booking input,
+.gv-ai-booking select,
+.gv-ai-booking textarea {
+	width: 100%;
+	border: 1px solid #dedede;
+	border-radius: 12px;
+	background: #fff;
+	color: #111;
+	font: inherit;
+}
+
+.gv-ai-search input {
+	height: 39px;
+	padding: 0 12px;
+	font-size: 13px;
+}
+
+.gv-ai-messages {
+	overflow-y: auto;
+	padding: 18px 14px 12px;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(250, 250, 250, 0.9)),
+		radial-gradient(circle at top right, rgba(231, 180, 90, 0.12), transparent 34%);
+}
+
+.gv-ai-row {
+	display: flex;
+	margin-bottom: 12px;
+	gap: 8px;
+	align-items: flex-end;
+}
+
+.gv-ai-row.is-user {
+	justify-content: flex-end;
+}
+
+.gv-ai-bubble {
+	max-width: 84%;
+	border-radius: 18px;
+	padding: 12px 13px;
+	font-size: 13px;
+	line-height: 1.55;
+	box-shadow: 0 9px 24px rgba(0, 0, 0, 0.07);
+	word-break: break-word;
+}
+
+.gv-ai-row.is-assistant .gv-ai-bubble {
+	background: #fff;
+	border: 1px solid rgba(17, 17, 17, 0.07);
+	border-bottom-left-radius: 6px;
+}
+
+.gv-ai-row.is-user .gv-ai-bubble {
+	background: #111;
+	color: #fff;
+	border-bottom-right-radius: 6px;
+}
+
+.gv-ai-bubble p {
+	margin: 0 0 8px;
+}
+
+.gv-ai-bubble p:last-child,
+.gv-ai-bubble ul:last-child,
+.gv-ai-bubble ol:last-child {
+	margin-bottom: 0;
+}
+
+.gv-ai-bubble ul,
+.gv-ai-bubble ol {
+	padding-left: 18px;
+	margin: 7px 0;
+}
+
+.gv-ai-bubble a {
+	color: #0e5bd8;
+	font-weight: 600;
+}
+
+.gv-ai-row.is-user .gv-ai-bubble a {
+	color: #f5cf87;
+}
+
+.gv-ai-bubble code {
+	background: rgba(0, 0, 0, 0.07);
+	border-radius: 6px;
+	padding: 1px 5px;
+}
+
+.gv-ai-bubble pre {
+	overflow-x: auto;
+	background: #151515;
+	color: #f8f8f8;
+	border-radius: 12px;
+	padding: 10px;
+	font-size: 12px;
+}
+
+.gv-ai-meta {
+	font-size: 10px;
+	color: #8a8a8a;
+	margin-top: 6px;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.gv-ai-row.is-user .gv-ai-meta {
+	color: rgba(255, 255, 255, 0.68);
+	justify-content: flex-end;
+}
+
+.gv-ai-sources {
+	margin-top: 9px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.gv-ai-source {
+	border: 1px solid #e0e0e0;
+	border-radius: 99px;
+	padding: 4px 8px;
+	font-size: 11px;
+	color: #333;
+	background: #fafafa;
+	text-decoration: none;
+}
+
+.gv-ai-chips,
+.gv-ai-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	margin-top: 10px;
+}
+
+.gv-ai-chip,
+.gv-ai-action {
+	border: 1px solid #dedede;
+	background: #fff;
+	color: #111;
+	border-radius: 99px;
+	padding: 7px 10px;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.gv-ai-action {
+	border-color: #111;
+	background: #111;
+	color: #fff;
+}
+
+.gv-ai-chip:hover,
+.gv-ai-chip:focus-visible,
+.gv-ai-action:hover,
+.gv-ai-action:focus-visible {
+	transform: translateY(-1px);
+	outline: none;
+}
+
+.gv-ai-typing {
+	width: 52px;
+	display: inline-flex;
+	gap: 4px;
+	align-items: center;
+}
+
+.gv-ai-typing span {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #777;
+	animation: gvAiTyping 900ms infinite ease-in-out;
+}
+
+.gv-ai-typing span:nth-child(2) {
+	animation-delay: 120ms;
+}
+
+.gv-ai-typing span:nth-child(3) {
+	animation-delay: 240ms;
+}
+
+.gv-ai-composer {
+	padding: 12px;
+	background: #fff;
+	border-top: 1px solid #ececec;
+}
+
+.gv-ai-upload-preview {
+	display: none;
+	gap: 7px;
+	margin-bottom: 8px;
+	flex-wrap: wrap;
+}
+
+.gv-ai-upload-preview.is-visible {
+	display: flex;
+}
+
+.gv-ai-file-pill {
+	background: #f4f4f4;
+	border: 1px solid #e4e4e4;
+	border-radius: 99px;
+	padding: 5px 8px;
+	font-size: 11px;
+}
+
+.gv-ai-composer-main {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	gap: 8px;
+	align-items: end;
+}
+
+.gv-ai-composer textarea {
+	min-height: 44px;
+	max-height: 112px;
+	resize: none;
+	padding: 11px 12px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.gv-ai-send,
+.gv-ai-attach {
+	width: 44px;
+	height: 44px;
+	border-radius: 14px;
+	border: 0;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gv-ai-send {
+	background: #111;
+	color: #fff;
+}
+
+.gv-ai-attach {
+	background: #f3f3f3;
+	color: #111;
+}
+
+.gv-ai-booking {
+	display: grid;
+	gap: 8px;
+	margin-top: 9px;
+}
+
+.gv-ai-booking input,
+.gv-ai-booking select,
+.gv-ai-booking textarea {
+	min-height: 38px;
+	padding: 8px 10px;
+	font-size: 12px;
+}
+
+.gv-ai-booking textarea {
+	min-height: 66px;
+	resize: vertical;
+}
+
+.gv-ai-booking button {
+	border: 0;
+	border-radius: 12px;
+	background: #111;
+	color: #fff;
+	padding: 10px 12px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.gv-ai-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@keyframes gvAiTyping {
+	0%, 80%, 100% {
+		transform: translateY(0);
+		opacity: 0.45;
+	}
+	40% {
+		transform: translateY(-5px);
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.gv-ai-panel,
+	.gv-ai-launcher,
+	.gv-ai-chip,
+	.gv-ai-action,
+	.gv-ai-typing span {
+		animation: none;
+		transition: none;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.gv-ai-widget {
+		right: 14px;
+		bottom: 14px;
+	}
+
+	.gv-ai-panel {
+		position: fixed;
+		inset: 10px;
+		width: auto;
+		height: auto;
+		bottom: 10px;
+		border-radius: 18px;
+	}
+
+	.gv-ai-launcher {
+		width: 58px;
+		height: 58px;
+	}
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENELLA Visuals Assistant Admin</title>
+    <link rel="icon" href="img/f-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <style>
+        body { margin: 0; font-family: "Poppins", sans-serif; background: #f5f5f3; color: #151515; }
+        header { background: #111; color: #fff; padding: 28px clamp(18px, 5vw, 56px); display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+        header h1 { margin: 0; font-size: clamp(24px, 4vw, 40px); letter-spacing: 0; }
+        header a { color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 10px 14px; }
+        main { padding: clamp(18px, 5vw, 56px); display: grid; gap: 22px; }
+        .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+        .card { background: #fff; border: 1px solid #e7e4dd; border-radius: 8px; padding: 18px; box-shadow: 0 18px 45px rgba(0,0,0,.05); }
+        .card strong { display: block; font-size: 30px; line-height: 1; margin-top: 8px; }
+        .toolbar { display: flex; gap: 10px; flex-wrap: wrap; }
+        button, input { font: inherit; border-radius: 8px; border: 1px solid #d8d5ce; padding: 10px 12px; background: #fff; }
+        button { background: #111; color: #fff; border-color: #111; cursor: pointer; }
+        input { min-width: min(100%, 320px); }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; font-size: 13px; }
+        th { background: #171717; color: #fff; }
+        pre { white-space: pre-wrap; max-height: 280px; overflow: auto; background: #111; color: #fff; padding: 14px; border-radius: 8px; }
+        @media (max-width: 850px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } header { align-items: flex-start; flex-direction: column; } }
+        @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Assistant Admin</h1>
+            <p>Local leads, analytics and knowledge health for GENELLA Visuals.</p>
+        </div>
+        <a href="./index.html">Back to website</a>
+    </header>
+    <main>
+        <section class="grid" aria-label="Assistant metrics">
+            <div class="card">Conversations<strong id="metricConversations">0</strong></div>
+            <div class="card">Leads<strong id="metricLeads">0</strong></div>
+            <div class="card">Messages<strong id="metricMessages">0</strong></div>
+            <div class="card">Knowledge Chunks<strong id="metricKnowledge">0</strong></div>
+        </section>
+        <section class="card">
+            <h2>Controls</h2>
+            <div class="toolbar">
+                <input id="search" type="search" placeholder="Search leads and events">
+                <button id="export">Export report</button>
+                <button id="clear">Clear local admin data</button>
+            </div>
+        </section>
+        <section>
+            <h2>Leads</h2>
+            <table>
+                <thead><tr><th>Created</th><th>Name</th><th>Contact</th><th>Service</th><th>Budget</th><th>Details</th></tr></thead>
+                <tbody id="leads"></tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Recent Analytics</h2>
+            <table>
+                <thead><tr><th>Time</th><th>Event</th><th>Language</th><th>Detail</th></tr></thead>
+                <tbody id="analytics"></tbody>
+            </table>
+        </section>
+        <section class="card">
+            <h2>Knowledge Base</h2>
+            <p>Run <code>node scripts/build-assistant-knowledge.js</code> after adding or editing site pages. The assistant will use the refreshed <code>data/assistant-knowledge.json</code>.</p>
+            <pre id="knowledge"></pre>
+        </section>
+    </main>
+    <script>
+        (function () {
+            var leadKey = 'gv_ai_leads_v1';
+            var analyticsKey = 'gv_ai_analytics_v1';
+            var conversationKey = 'gv_ai_conversation_v1';
+            var leads = JSON.parse(localStorage.getItem(leadKey) || '[]');
+            var events = JSON.parse(localStorage.getItem(analyticsKey) || '[]');
+            var conversation = JSON.parse(localStorage.getItem(conversationKey) || '{"messages":[]}');
+            var knowledge = null;
+            var search = document.getElementById('search');
+
+            function text(value) { return String(value || ''); }
+            function matches(row) { return JSON.stringify(row).toLowerCase().indexOf(search.value.toLowerCase()) !== -1; }
+            function render() {
+                var filteredLeads = leads.filter(matches);
+                var filteredEvents = events.slice(-100).reverse().filter(matches);
+                document.getElementById('metricConversations').textContent = conversation.messages && conversation.messages.length ? '1' : '0';
+                document.getElementById('metricLeads').textContent = leads.length;
+                document.getElementById('metricMessages').textContent = conversation.messages ? conversation.messages.length : 0;
+                document.getElementById('metricKnowledge').textContent = knowledge && knowledge.documents ? knowledge.documents.length : 0;
+                document.getElementById('leads').innerHTML = filteredLeads.map(function (lead) {
+                    return '<tr><td>' + text(new Date(lead.createdAt).toLocaleString()) + '</td><td>' + text(lead.name) + '</td><td>' + text(lead.email || lead.phone) + '</td><td>' + text(lead.service) + '</td><td>' + text(lead.budget) + '</td><td>' + text(lead.description) + '</td></tr>';
+                }).join('') || '<tr><td colspan="6">No leads captured yet.</td></tr>';
+                document.getElementById('analytics').innerHTML = filteredEvents.map(function (event) {
+                    return '<tr><td>' + text(new Date(event.at).toLocaleString()) + '</td><td>' + text(event.event) + '</td><td>' + text(event.language) + '</td><td>' + text(JSON.stringify(event.detail)) + '</td></tr>';
+                }).join('') || '<tr><td colspan="4">No analytics events yet.</td></tr>';
+                document.getElementById('knowledge').textContent = knowledge ? JSON.stringify({
+                    generatedAt: knowledge.generatedAt,
+                    pages: knowledge.pages,
+                    chunks: knowledge.documents.length
+                }, null, 2) : 'Knowledge file not loaded.';
+            }
+
+            search.addEventListener('input', render);
+            document.getElementById('export').addEventListener('click', function () {
+                var blob = new Blob([JSON.stringify({ leads: leads, events: events, conversation: conversation, knowledge: knowledge }, null, 2)], { type: 'application/json' });
+                var link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'genella-assistant-report.json';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+            });
+            document.getElementById('clear').addEventListener('click', function () {
+                localStorage.removeItem(leadKey);
+                localStorage.removeItem(analyticsKey);
+                leads = [];
+                events = [];
+                render();
+            });
+            fetch('data/assistant-knowledge.json').then(function (response) { return response.json(); }).then(function (data) {
+                knowledge = data;
+                render();
+            }).catch(render);
+            render();
+        })();
+    </script>
+</body>
+</html>
